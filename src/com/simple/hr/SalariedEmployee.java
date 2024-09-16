@@ -2,6 +2,7 @@ package com.simple.hr;
 
 import sun.jvm.hotspot.debugger.*;
 
+import java.io.*;
 import java.text.*;
 
 public class SalariedEmployee extends Employee {
@@ -15,6 +16,17 @@ public class SalariedEmployee extends Employee {
     public SalariedEmployee(String name, double sal) {
         super(name);
         this.salary = sal;
+    }
+
+    public static void printStub(String filePath, List<SalariedEmployee> employees) {
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter((filePath, true))){
+            for (SalariedEmployee employee : employees) {
+                writer.write(employee.generatePayStub());
+            }
+        } catch (IOException e) {
+            System.out.println("An error occurred while printing the pay stubs.");
+            e.printStackTrace();
+        }
     }
 
     @Override
@@ -32,11 +44,11 @@ public class SalariedEmployee extends Employee {
         String strDate = format.format(date);
 
         String outStr;
-        outStr = "\t\t" + company.getName() +
+        outStr = "\t\t\t" + company.getName() +
                 "\n\t" + "Name: " + getName() + "  -Employee Id: " + getEmployeeID() +
                 "\n\t " + "Pay Date \t " + strDate +
-                "\n\t " + "Net Salary $" + salary +
-                "\n\t" + "Gross Salary $" + calculatePay();
+                "\n\t " + "Gross Salary $" + salary +
+                "\n\t" + "Net Salary $" + calculatePay() + "\n\n";
 
         return outStr;
     }
