@@ -1,8 +1,7 @@
 package com.simple.hr;
 
-import sun.jvm.hotspot.debugger.*;
-
 import java.io.*;
+import java.sql.Date;
 import java.text.*;
 
 public class SalariedEmployee extends Employee {
