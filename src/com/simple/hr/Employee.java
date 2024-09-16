@@ -8,22 +8,22 @@ public abstract class Employee implements Payable {
     private String name;
     private double payRate;
     private Address address;
+    private Department department;
 
     public Employee(String name) {
         this.name = name;
         EMPLOYEE_ID = getNextID();
         payRate = STARTING_PAY_RATE;
-
-    }
-
-    public void setAddress(Address addr) {
-        address = addr;
     }
 
     public static int getNextID() {
         int id = nextID;
         nextID++;
         return id;
+    }
+
+    public void setAddress(Address addr) {
+        address = addr;
     }
 
     public String getName() {
