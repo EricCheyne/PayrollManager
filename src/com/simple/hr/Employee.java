@@ -8,7 +8,7 @@ public abstract class Employee implements Payable {
     private String name;
     private double payRate;
     private Address address;
-    private Department department;
+    protected Department department;
 
     public Employee(String name) {
         this.name = name;
