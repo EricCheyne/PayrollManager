@@ -11,4 +11,3 @@ public class Main {
         System.out.println(emp2.calculatePay());
         System.out.println(contractor.calculatePay());
     }
-}
